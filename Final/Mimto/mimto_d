@@ -1,0 +1,181 @@
+-- MySQL Administrator dump 1.4
+--
+-- ------------------------------------------------------
+-- Server version	5.1.50-community
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+
+
+--
+-- Create schema mimto
+--
+
+CREATE DATABASE IF NOT EXISTS mimto;
+USE mimto;
+
+--
+-- Definition of table `admin`
+--
+
+DROP TABLE IF EXISTS `admin`;
+CREATE TABLE `admin` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `aname` varchar(255) DEFAULT NULL,
+  `usrname` varchar(255) DEFAULT NULL,
+  `passwd` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `admin`
+--
+
+/*!40000 ALTER TABLE `admin` DISABLE KEYS */;
+INSERT INTO `admin` (`id`,`aname`,`usrname`,`passwd`) VALUES 
+ (1,'Root Admin','admin','yahoo');
+/*!40000 ALTER TABLE `admin` ENABLE KEYS */;
+
+
+--
+-- Definition of table `im_link`
+--
+
+DROP TABLE IF EXISTS `im_link`;
+CREATE TABLE `im_link` (
+  `link_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `link` varchar(2048) DEFAULT NULL,
+  `img_id` int(10) unsigned DEFAULT NULL,
+  PRIMARY KEY (`link_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `im_link`
+--
+
+/*!40000 ALTER TABLE `im_link` DISABLE KEYS */;
+INSERT INTO `im_link` (`link_id`,`link`,`img_id`) VALUES 
+ (1,'http://tulips.com',1),
+ (2,'www.wallpapers.com',2),
+ (3,'www.wallpapers.com',3),
+ (4,'http://tulips.com',4),
+ (5,'http://tulips.com',5),
+ (6,'http://tulips.com',7),
+ (7,'http://tulips.com',8),
+ (8,'http://www.indiauto.in/2010/12/new-audi-r8-in-audi-ahmedabad.html',9),
+ (9,'http://tulips.com',10),
+ (10,'http://tulips.com',11);
+/*!40000 ALTER TABLE `im_link` ENABLE KEYS */;
+
+
+--
+-- Definition of table `im_tag`
+--
+
+DROP TABLE IF EXISTS `im_tag`;
+CREATE TABLE `im_tag` (
+  `tag_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `tag` varchar(2048) DEFAULT NULL,
+  `tag_weight` int(11) DEFAULT NULL,
+  `img_id` int(10) unsigned DEFAULT NULL,
+  PRIMARY KEY (`tag_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=40 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `im_tag`
+--
+
+/*!40000 ALTER TABLE `im_tag` DISABLE KEYS */;
+INSERT INTO `im_tag` (`tag_id`,`tag`,`tag_weight`,`img_id`) VALUES 
+ (1,'tulips',1,1),
+ (2,'flowers',1,1),
+ (3,'yellow',1,1),
+ (4,'windows 7',1,1),
+ (5,'desert',1,2),
+ (6,'landscape',1,2),
+ (7,'kalahari',1,2),
+ (8,'america',1,2),
+ (9,'usa',1,2),
+ (10,'Chrysanthemum',1,3),
+ (11,'flower',1,3),
+ (12,'red',1,3),
+ (13,'orange color',1,3),
+ (14,'windows 7',1,3),
+ (15,'Hydrangeas',1,4),
+ (16,'flower',1,4),
+ (17,'windows 77',1,4),
+ (18,'Penguins',1,5),
+ (19,'mamals',1,5),
+ (20,'birds',1,5),
+ (21,'antartica',1,5),
+ (22,'Lighthouse',1,7),
+ (23,'windows 7',1,7),
+ (24,'wallpapers',1,7),
+ (25,'yellow',1,8),
+ (26,'tulips',1,8),
+ (27,'greenary',1,8),
+ (28,'scenary',1,8),
+ (29,'Koala',1,9),
+ (30,'animals',1,9),
+ (31,'slow',1,9),
+ (32,'australia',1,9),
+ (33,'Jellyfish',1,10),
+ (34,'creatures',1,10),
+ (35,'sea',1,10),
+ (36,'dangerous',1,10),
+ (37,'poison',1,10),
+ (38,'yellow',1,11),
+ (39,'tulips',1,11);
+/*!40000 ALTER TABLE `im_tag` ENABLE KEYS */;
+
+
+--
+-- Definition of table `up_images`
+--
+
+DROP TABLE IF EXISTS `up_images`;
+CREATE TABLE `up_images` (
+  `img_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(1024) DEFAULT NULL,
+  `descr` varchar(2048) DEFAULT NULL,
+  `other` varchar(1024) DEFAULT NULL,
+  `valid` int(11) DEFAULT NULL,
+  `fname` varchar(1024) DEFAULT NULL,
+  PRIMARY KEY (`img_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `up_images`
+--
+
+/*!40000 ALTER TABLE `up_images` DISABLE KEYS */;
+INSERT INTO `up_images` (`img_id`,`name`,`descr`,`other`,`valid`,`fname`) VALUES 
+ (1,'Tulips.jpg','Tulips the windows 7 wallpaper','Windows',1,'1.jpg'),
+ (2,'Desert.jpg','Desert at sunset','',1,'2.jpg'),
+ (3,'Chrysanthemum.jpg','Chrysanthemum','',1,'3.jpg'),
+ (4,'Hydrangeas.jpg','Hydrangeas','',1,'4.jpg'),
+ (5,'Penguins.jpg','Penguins','',1,'5.jpg'),
+ (7,'Lighthouse.jpg','Lighthouse','',1,'6.jpg'),
+ (8,'Tulips.jpg','Tulips the windows 7 wallpaper','Windows',1,'8.jpg'),
+ (9,'Koala.jpg','Australian Koala','',1,'9.jpg'),
+ (10,'Jellyfish.jpg','Jellyfish','',1,'10.jpg'),
+ (11,'Tulips.jpg','Tulips the windows 7 wallpaper','Windows',1,'11.jpg');
+/*!40000 ALTER TABLE `up_images` ENABLE KEYS */;
+
+
+
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
