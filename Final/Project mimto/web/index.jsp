@@ -1,8 +1,7 @@
-
 <%--
     Document   : index
     Created on : Aug 26, 2010, 12:05:11 PM
-    Author     : Student
+    Author     : Boaz
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
